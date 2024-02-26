@@ -176,7 +176,7 @@ public class MyJasonConverter<T> implements JsonConverter<T> {
                 if(isBaseClass(value)){
                     json=json+value+",";
                 }else if((specialStr= specialClass(value))!=null){
-                    json=json+specialStr+",";
+                    json=json+"\""+specialStr+"\""+",";
                 }else if(value instanceof String s){
                     json=json+"\""+s+"\""+",";
                 }else if (value instanceof Collection collection){
@@ -203,7 +203,7 @@ public class MyJasonConverter<T> implements JsonConverter<T> {
             if(isBaseClass(o)){
                 str=str+o+",";
             }else if((specialStr= specialClass(o))!=null){
-                str=str+ specialStr+",";
+                str=str+"\""+specialStr+"\""+",";
             }else if(o instanceof String s){
                 str=str+"\""+o+"\""+",";
             }else if(o instanceof Collection collection1){
